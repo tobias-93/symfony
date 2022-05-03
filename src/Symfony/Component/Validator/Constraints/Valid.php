@@ -43,4 +43,11 @@ class Valid extends Constraint
             parent::addImplicitGroupName($group);
         }
     }
+    
+    public function __construct(array $options = null, bool $traverse = null, array $groups = null, mixed $payload = null)
+    {
+        parent::__construct($options ?? [], $groups, $payload);
+
+        $this->traverse = $traverse ?? $this->traverse ?? true;
+    }
 }
